@@ -47,8 +47,8 @@ namespace Blog.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(User user)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 // Проверка уникальности логина и email
                 if (_context.Users.Any(u => u.Login == user.Login))
                 {
@@ -79,7 +79,7 @@ namespace Blog.Controllers
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
-            }
+            //}
             return View(user);
         }
 
